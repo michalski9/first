@@ -35,15 +35,47 @@
         </div>
     </div>
     <div class="container body-content">
+      
+
+        <div id="3244245">@DateTime.Now</div>
         @RenderBody()
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
+    <section>
+        <article>
+            <input id="" type="button" value="zapytaj" />
+        </article>
+        <article id="to_co_przyszlo">
 
+        </article>
+        
+    </section>
+    
+    
+    
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <script>
+
+
+        $("input").click(function () {
+            $.get("http://asystent-unijny.hostingasp.pl/Days/DatabaseCount",
+                null,
+                function (data) {
+                    alert(data.data);
+                    
+                }
+                )
+            
+
+        })
+
+    </script>
+
 </body>
 </html>

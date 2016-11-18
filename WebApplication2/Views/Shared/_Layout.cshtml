@@ -37,7 +37,25 @@
     <div class="container body-content">
       
 
-        <div id="3244245">@DateTime.Now</div>
+        <!-- Single statement block -->
+        @{ var myMessage = "Hello World"; }
+
+        <!-- Inline expression or variable -->
+        <p>The value of myMessage is: @myMessage</p>
+
+        <!--	Multi-statement block -->
+        @{
+            var greeting = "Welcome to our site!";
+            var weekDay = DateTime.Now.DayOfWeek;
+            var month = DateTime.Now.Month;
+            var dayOfYear = DateTime.Now.DayOfYear;
+            var hour = DateTime.Now.Hour;
+            var minut = DateTime.Now.Minute;
+            var second = DateTime.Now.Second;
+            var greetingMessage = greeting + " Here in Huston it is: " + weekDay + ", month: " + month + ", hour: " + hour + ":" + minut + ":" + second;
+        }
+
+        <p id="wwrite">The greeting is: @greetingMessage</p>
         @RenderBody()
         <hr />
         <footer>
@@ -74,7 +92,22 @@
             
 
         })
+        var times = 200;
+        function repeat(fn, times) {
+            for (var i = 0; i < times; i++) {
+                fn();
+                
+            }
+        }
 
+        function fn() {
+            var dt = new Date($.now());
+            $("#wwrite").text("The greeting is: " + dt.getSeconds());
+            document.write("czas");
+            
+        }
+
+        $(document).ready(repeat(fn, times));
     </script>
 
 </body>
